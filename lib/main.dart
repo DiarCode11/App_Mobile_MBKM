@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'aksara_dict.dart';
 import 'notes.dart';
 import 'meet_3/main_screen/meet_3_screen.dart';
+import 'meet_4/screens/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -76,7 +77,19 @@ Widget buildDrawer(BuildContext context){
               ),
             );
           },
-        )
+        ),
+        ListTile(
+          title: Text('API Integration and GET DATA'),
+          leading: Icon(Icons.book_rounded),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Home(),
+              ),
+            );
+          },
+        ),
       ]
     ),
   );
