@@ -3,6 +3,7 @@ import 'aksara_dict.dart';
 import 'notes.dart';
 import 'meet_3/main_screen/meet_3_screen.dart';
 import 'meet_4/screens/home.dart';
+import 'meet_5/main_screen/meet_5_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 // INI DRAWER
-Widget buildDrawer(BuildContext context){
+Widget buildDrawer(BuildContext context) {
   return Drawer(
     child: Column(
       children: [
@@ -80,7 +81,7 @@ Widget buildDrawer(BuildContext context){
         ),
         ListTile(
           title: Text('API Integration and GET DATA'),
-          leading: Icon(Icons.book_rounded),
+          leading: Icon(Icons.data_array_rounded),
           onTap: () {
             Navigator.push(
               context,
@@ -90,7 +91,19 @@ Widget buildDrawer(BuildContext context){
             );
           },
         ),
-      ]
+        ListTile(
+          title: Text('Kamera'),
+          leading: Icon(Icons.camera),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Meet5(),
+              ),
+            );
+          },
+        )
+      ],
     ),
   );
 }
@@ -105,7 +118,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // Tempat Fungsi
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,14 +126,14 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(
           'Belajar Aksara',
           style: TextStyle(
-            color: Colors.white
+            color: Colors.white,
           ),
         ),
-        backgroundColor: Colors.cyan
+        backgroundColor: Colors.cyan,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10),
-        child:Center(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -130,24 +142,25 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: Colors.cyan,
-                          width: 2
-                        )
-                      )
-                    ),
-                    width: 140,
-                    child: Center(
-                      child: Text(
-                        'Aksara Latin',
-                        style: TextStyle(
-                          fontSize: 18
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            color: Colors.cyan,
+                            width: 2,
+                          ),
                         ),
                       ),
-                    )
+                      child: Center(
+                        child: Text(
+                          'Aksara Latin',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   Container(
                     width: 100,
@@ -167,61 +180,64 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: Colors.cyan,
-                          width: 2
-                        )
-                      )
-                    ),
-                    width: 140,
-                    child: Center(
-                      child: Text(
-                        'Aksara Bali',
-                        style: TextStyle(
-                          fontSize: 18
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            color: Colors.cyan,
+                            width: 2,
+                          ),
                         ),
                       ),
-                    )
-                  )
+                      child: Center(
+                        child: Text(
+                          'Aksara Bali',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
               SizedBox(height: 10),
-              Container(
-                width: 200,
-                height: 200,
-                decoration: BoxDecoration(
-                  color: Colors.cyan,
-                  borderRadius: BorderRadius.circular(10)
-                ),
-                alignment: Alignment.topLeft,
-                padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-                child: Text(
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.cyan,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+                  child: Text(
                     'Hasil transliterasi:',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ),
               SizedBox(height: 10),
-              TextField(
-                maxLines: 3,
-                minLines: 1,
-                decoration: InputDecoration(
-                  labelText: 'Masukkan teks ',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10)
+              Expanded(
+                child: TextField(
+                  maxLines: 3,
+                  minLines: 1,
+                  decoration: InputDecoration(
+                    labelText: 'Masukkan teks ',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
-              )
+              ),
             ],
-          )
-        )
-      )
+          ),
+        ),
+      ),
     );
   }
 }
-
